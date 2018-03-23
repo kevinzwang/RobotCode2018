@@ -21,6 +21,8 @@ public class RunScript extends CommandGroup {
 			System.err.println("[ERROR] auto scripts file does not contain script `" + scriptName + "`.");
 			return;
 		}
+		
+		addParallel(new AutoLift(Robot.lift, "SWITCH"));
 
 		outerloop: for (String[] cmd : script) {
 			String cmdName = cmd[0];

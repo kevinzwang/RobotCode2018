@@ -1,9 +1,11 @@
 package org.usfirst.frc.team199.Robot2018.commands;
 
 import org.usfirst.frc.team199.Robot2018.Robot;
+import org.usfirst.frc.team199.Robot2018.subsystems.LiftInterface.LiftHeight;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -58,6 +60,9 @@ public class IntakeCube extends Command {
 	protected void end() {
 		Robot.intakeEject.stopIntake();
 		Robot.stopIntake = false;
+		if (Robot.robot.isAutonomous()) {
+			Scheduler.getInstance().add(new LiftToPosition(Robot.lift, LiftHeight.SWITCH));
+		}
 	}
 
 	// Called when another command which requires one or more of the same

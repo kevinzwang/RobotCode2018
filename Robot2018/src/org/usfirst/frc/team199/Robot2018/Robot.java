@@ -49,6 +49,7 @@ public class Robot extends IterativeRobot {
 	public static RobotMap rmap;
 	public static Drivetrain dt;
 	public static Listener listen;
+	public static Robot robot;
 
 	public static OI oi;
 
@@ -151,6 +152,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		robot = this;
 		rmap = new RobotMap();
 		climber = new Climber();
 		climberAssist = new ClimberAssist();
