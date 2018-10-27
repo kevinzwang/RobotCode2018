@@ -200,7 +200,8 @@ public class Drivetrain extends Subsystem implements DrivetrainInterface {
 	public void dtLeftPIDDrive(double value) {
 		double setValue = value * Robot.getConst("Units per 100ms", 3413);
 		dtLeftMaster.set(ControlMode.Velocity, setValue);
-		dtLeftSlave.set(ControlMode.Velocity, setValue);
+		// dtLeftSlave.set(ControlMode.Velocity, setValue);
+		dtLeftSlave.follow(dtLeftMaster);
 	}
 
 	/**
@@ -213,7 +214,8 @@ public class Drivetrain extends Subsystem implements DrivetrainInterface {
 	public void dtRightPIDDrive(double value) {
 		double setValue = value * Robot.getConst("Units per 100ms", 3413);
 		dtRightMaster.set(ControlMode.Velocity, setValue);
-		dtRightSlave.set(ControlMode.Velocity, setValue);
+		// dtRightSlave.set(ControlMode.Velocity, setValue);
+		dtRightSlave.follow(dtRightMaster);
 	}
 
 	public VelocityPIDController getLeftVPID() {
