@@ -164,7 +164,7 @@ public class RobotMap {
 		configSRX(dtLeftMaster);
 		dtLeftSlave = new WPI_VictorSPX(getPort("LeftVictorSPXSlave", 2));
 		configSPX(dtLeftSlave);
-		dtLeft = new SpeedControllerGroup(dtLeftMaster, dtLeftSlave);
+		dtLeft = new SpeedControllerGroup(dtLeftMaster);
 		// inverted bc gear boxes invert from input to output
 		dtLeft.setInverted(true);
 
@@ -185,7 +185,7 @@ public class RobotMap {
 		configSRX(dtRightMaster);
 		dtRightSlave = new WPI_VictorSPX(getPort("RightVictorSPXSlave", 3));
 		configSPX(dtRightSlave);
-		dtRight = new SpeedControllerGroup(dtRightMaster, dtRightSlave);
+		dtRight = new SpeedControllerGroup(dtRightMaster);
 		// inverted bc gear boxes invert from input to output
 		dtRight.setInverted(true);
 
